@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Skills</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+          }
+
+          .topnav {
+            overflow: hidden;
+            background-color: #008CBA;
+          }
+
+          .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+          }
+          .topnav a.active {
+            background-color: darkcyan;
+            color: white;
+          }
+          table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+          }
+
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+
+            </style>
+    <script>
+            var baseurl = "http://localhost:8080/WuzzufJobs/rest/jobService";
+            function loadJobs(){
+                var xmlhttp =new XMLHttpRequest();
+                xmlhttp.open("GET",baseurl+"/skills",true);
+                xmlhttp.onreadystatechange=function(){
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        var job = JSON.parse(xmlhttp.responseText);
+                        var arrayKey = Object.entries(job).map(item => item[0]);
+                        var arrayVal = Object.entries(job).map(item => item[1]);
+                        
+                        var tbtop ='<table ><tr><th>Skills</th><th>Count</th></tr>';
+            //main table content will be from REST Get Call
+            var main ="";
+            //alert(arrayVal[0]);
+            for (i=0 ;i<arrayVal.length ;i++)
+            {
+                main += "<tr><td>"+arrayKey[i]+"</td><td>"+arrayVal[i]+"</td></tr>";
+            }
+            var tblbottom = "</table>";
+            var tbl= tbtop+main+tblbottom;
+            document.getElementById("skills").innerHTML=tbl;
+                    }
+                };
+                xmlhttp.send();
+                
+            }
+            window.onload = function (){loadJobs();}
+            </script>
+    
+    </head>
+    <body>
+        <div class="topnav">
+        <a class="active" >Wuzzuf Jobs</a>
+        </div>
+        <div><p> Print skills one by one </p></div>
+        
+        <div id ="skills" ></div>
+        
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Top 10 pie chart</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+           body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+          }
+
+          .topnav {
+            overflow: hidden;
+            background-color: #008CBA;
+          }
+
+          .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+          }
+          .topnav a.active {
+            background-color: darkcyan;
+            color: white;
+          }
+        
+
+            </style>
+    <script>
+            var baseurl = "http://localhost:8080/WuzzufJobs/rest/jobService";
+            function loadJobs(){
+                var xmlhttp =new XMLHttpRequest();
+                xmlhttp.open("GET",baseurl+"/plottop10",true);
+                xmlhttp.onreadystatechange=function(){
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        var link = xmlhttp.responseText;      
+                        var myImage = new Image();
+                        myImage.src ='http://127.0.0.1:8887/'+link+'';
+                        document.body.appendChild(myImage);
+                    }
+                };
+                xmlhttp.send();   
+            }
+            window.onload = function (){
+                loadJobs();
+            };
+            
+            
+            </script>
+    
+    </head>
+    <body>
+        <div class="topnav">
+        <a class="active" >Wuzzuf Jobs</a>
+        </div>
+        <div><p>pie chart of Top Count the jobs for each company</p></div>
+        
+        <div id ="pie" ></div>
+        
+    </body>
+</html>

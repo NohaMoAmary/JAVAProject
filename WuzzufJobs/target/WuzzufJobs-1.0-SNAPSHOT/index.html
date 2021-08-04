@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    
+    
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            .button {
+              border: none;
+              color: white;
+              padding: 16px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              transition-duration: 0.4s;
+              cursor: pointer;
+            }
+
+            .button1 {
+              background-color: white; 
+              color: black; 
+              border: 2px solid #4CAF50;
+            }
+
+            .button1:hover {
+              background-color: #4CAF50;
+              color: white;
+            }
+
+            .button2 {
+              background-color: white; 
+              color: black; 
+              border: 2px solid #008CBA;
+            }
+
+            .button2:hover {
+              background-color: #008CBA;
+              color: white;
+            }
+            body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+          }
+
+          .topnav {
+            overflow: hidden;
+            background-color: #008CBA;
+          }
+
+          .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+          }
+          .topnav a.active {
+            background-color: darkcyan;
+            color: white;
+          }
+
+            </style>
+    </head>
+    <body>
+        <div class="topnav">
+        <a class="active" >Wuzzuf Jobs</a>
+        
+      </div>
+      <div>
+        <p>choose one.</p>
+        <button id="B1" class="button button2">display Some of DataSet</button>
+        <button id="B2" class="button button2">Clean the data</button>
+        <button id="B3" class="button button2">jobs for each company</button>
+        <button id="B4" class="button button2">plot jobs for each company</button>
+        <button id="B5" class="button button2">plot top 10 demanding Company </button>  
+        <button id="B6" class="button button2">most popular job titles</button>
+        <button id="B7" class="button button2">plot most popular job titles</button>
+        <button id="B8" class="button button2"> the most popular areas</button>
+        <button id="B9" class="button button2">bar Chart of the most popular areas</button> 
+        <button id="B10" class="button button2">skills one by one and how many each repeated</button>
+        </div>
+        
+        <script type="text/javascript">
+            document.getElementById("B1").onclick = function () {
+                location.href = "displayJOBs.html";
+            };
+            document.getElementById("B2").onclick = function () {
+                location.href = "cleanDATAJOBs.html";
+            };
+            document.getElementById("B3").onclick = function () {
+                location.href = "jForeachComp.html";
+            };
+            document.getElementById("B4").onclick = function () {
+                location.href = "plotJobforeachCompany.html";
+            };
+            document.getElementById("B5").onclick = function () {
+                location.href = "plotTopJobsCompany.html";
+            };
+            document.getElementById("B6").onclick = function () {
+                location.href = "popJTitle.html";
+            };
+             document.getElementById("B7").onclick = function () {
+                location.href = "plotpopJTitle.html";
+            };
+             document.getElementById("B8").onclick = function () {
+                location.href = "PopArea.html";
+            };
+            document.getElementById("B9").onclick = function () {
+                location.href = "plotArea.html";
+            };
+            document.getElementById("B10").onclick = function () {
+                location.href = "skills.html";
+            };
+        </script>
+    </body>
+</html>
